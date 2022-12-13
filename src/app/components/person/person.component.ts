@@ -41,10 +41,13 @@ export class PersonComponent implements OnInit {
   }
 
   editPerson(person: Person) {
-    console.log("editando")
+    this.selectedPerson = person
   }
 
   deletePerson(person: Person) {
-    console.log("Borrando")
+    this.personService.deletePerson(person)
+    .subscribe( res => {
+      this.getPersons()
+    })
   }
 }

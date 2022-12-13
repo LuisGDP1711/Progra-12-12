@@ -20,4 +20,12 @@ export class PersonService {
   getPersons(){
     return this.http.get(this.URL_API)
   }
+
+  patchPerson(data: Person) {
+    return this.http.patch(this.URL_API + `/${data._id}`, data)
+  }
+
+  deletePerson(data: Person) {
+    return this.http.delete(this.URL_API + `/${data._id}`)
+  }
 }

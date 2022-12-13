@@ -15,7 +15,7 @@
         </div>
         <div>
             <button>Enviar</button>
-            <button (click)="resetForm(personForm)">Borrar</button>
+            <button (click)="resetFrom(personForm)">Borrar</button>
         </div>
     </form>
 </div>
@@ -31,16 +31,17 @@
             <td>Ajustes</td>
         </thead>
         <tbody>
-            <tr *ngFor="let item of persons; index as i"></tr>
-            <td>{{ i + 1 }}</td>
-            <td> {{ item.name}}</td>
-            <td> {{ item.salary}}</td>
-            <td> {{ item.age}}</td>
-            <td> {{ item.approved}}</td>
-            <td>
-                <a href="#" (click)="editPerson(item)">editar</a>
-                <a hred="#" (click)="deletePerson(item)">borrar</a>
-            </td>
+            <tr *ngFor="let item of persons; index as i">
+                <td>{{ i + 1 }}</td>
+                <td> {{ item.name}}</td>
+                <td> {{ item.salary}}</td>
+                <td> {{ item.age}}</td>
+                <td> {{ item.approved}}</td>
+                <td>
+                    <a href="#" (click)="editPerson(item)">editar</a>
+                    <a hred="#" (click)="deletePerson(item)">borrar</a>
+                </td>
+            </tr>
         </tbody>
     </table>
 </div>
