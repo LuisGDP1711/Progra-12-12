@@ -11,7 +11,36 @@
             <input type="text" name="age" #age="ngModel" [(ngModel)]="selectedPerson.age" placeholder="Coloque su edad">
         </div>
         <div>
-            <input type="text" name="approved" #approved="ngModel" [(ngModel)]="selectedPerson.approved" placeholder="Está aprovado?">
+            <input type="text" name="approved" #approved="ngModel" [(ngModel)]="selectedPerson.approved" placeholder="Está aprobado?">
+        </div>
+        <div>
+            <button>Enviar</button>
+            <button (click)="resetForm(personForm)">Borrar</button>
         </div>
     </form>
+</div>
+
+<div>
+    <table>
+        <thead>
+            <th>incont</th>
+            <th>nombre</th>
+            <th>Salario</th>
+            <th>Edad</th>
+            <th>aprobado</th>
+            <td>Ajustes</td>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of persons; index as i"></tr>
+            <td>{{ i + 1 }}</td>
+            <td> {{ item.name}}</td>
+            <td> {{ item.salary}}</td>
+            <td> {{ item.age}}</td>
+            <td> {{ item.approved}}</td>
+            <td>
+                <a href="#" (click)="editPerson(item)">editar</a>
+                <a hred="#" (click)="deletePerson(item)">borrar</a>
+            </td>
+        </tbody>
+    </table>
 </div>

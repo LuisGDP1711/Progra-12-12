@@ -16,4 +16,8 @@ export class PersonService {
   postPerson(data : Person) {
     return this.http.post(this.URL_API, data)
   }
+
+  getPersons(){
+    return this.http.get(this.URL_API)
+  }
 }

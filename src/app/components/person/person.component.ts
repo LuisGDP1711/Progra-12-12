@@ -17,6 +17,7 @@ export class PersonComponent implements OnInit {
   constructor(private personService: PersonService) { }
 
   ngOnInit(): void {
+    this.getPersons()
   }
 
   resetFrom(form: NgForm){
@@ -32,4 +33,18 @@ export class PersonComponent implements OnInit {
     })
   }
 
+  getPersons() {
+    this.personService.getPersons()
+    .subscribe(res => {
+      this.persons = res as Person[]
+    })
+  }
+
+  editPerson(person: Person) {
+    console.log("editando")
+  }
+
+  deletePerson(person: Person) {
+    console.log("Borrando")
+  }
 }
