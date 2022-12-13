@@ -1,6 +1,7 @@
 <h2>Input data</h2>
 <div>
     <form #personForm="ngForm" (ngSubmit)="addPerson(personForm)">
+        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="selectedPerson._id">
         <div>
             <input type="text" name="name" #name="ngModel" [(ngModel)]="selectedPerson.name" placeholder="Coloque su nombre">
         </div>

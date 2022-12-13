@@ -27,10 +27,24 @@ export class PersonComponent implements OnInit {
   }
 
   addPerson(form: NgForm){
+    if (form.value._id) {
+      //patch
+      this.personService.patchPerson(form.value)
+      .subscribe( res => {
+        this.resetFrom(form)
+      })
+    }else {
+      //create
+      this.personService.postPerson(form.value)
+      .subscribe(res => {
+        this.resetFrom(form)
+      })
+    }
     this.personService.postPerson(form.value)
     .subscribe( res => {
       this.resetFrom(form)
     })
+    this.getPersons()
   }
 
   getPersons() {
@@ -45,9 +59,11 @@ export class PersonComponent implements OnInit {
   }
 
   deletePerson(person: Person) {
-    this.personService.deletePerson(person)
-    .subscribe( res => {
-      this.getPersons()
-    })
+    if (confirm('Realmente quiere borrar?')) {
+      this.personService.deletePerson(person)
+      .subscribe( res => {
+        this.getPersons()
+      })
+    }
   }
 }
