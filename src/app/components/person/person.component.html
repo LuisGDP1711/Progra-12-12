@@ -1,0 +1,17 @@
+<h2>Input data</h2>
+<div>
+    <form #personForm="ngForm" (ngSubmit)="addPerson(personForm)">
+        <div>
+            <input type="text" name="name" #name="ngModel" [(ngModel)]="selectedPerson.name" placeholder="Coloque su nombre">
+        </div>
+        <div>
+            <input type="text" name="salary" #salary="ngModel" [(ngModel)]="selectedPerson.salary" placeholder="Coloque su salario">
+        </div>
+        <div>
+            <input type="text" name="age" #age="ngModel" [(ngModel)]="selectedPerson.age" placeholder="Coloque su edad">
+        </div>
+        <div>
+            <input type="text" name="approved" #approved="ngModel" [(ngModel)]="selectedPerson.approved" placeholder="Está aprovado?">
+        </div>
+    </form>
+</div>
